@@ -43,5 +43,16 @@ CHE 696: On-Ramp to Data Science
    notebooks/HW05.ipynb
 
    notebooks/lecture10_unit_testing.ipynb
+
+   notebooks/lecture11_continuous_integration_and_packaging_projects.ipynb
+
+   notebooks/lecture12_numpy_attributes_methods.ipynb
+
+   notebooks/HW06.ipynb
+
+   notebooks/project_instructions.ipynb
+
+   notebooks/lecture13_numpy_operations_and_linalg_fun.ipynb
+
     ..
    .. :caption: About Sphinx:
