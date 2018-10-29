@@ -12,16 +12,26 @@
     "- https://jakevdp.github.io/PythonDataScienceHandbook/02.05-computation-on-arrays-broadcasting.html\n",
     "- [Feature Engineering for Machine Learning](https://search.lib.umich.edu/catalog/record/016260792) \n",
     "- [The Manga Guide to Linear Algebra](https://www.safaribooksonline.com/library/view/the-manga-guide/9781457166730/)\n",
-    "- [Introduction to Linear Algebra by Gilbert Strang](http://math.mit.edu/~gs/linearalgebra/)"
+    "- [Introduction to Linear Algebra by Gilbert Strang](http://math.mit.edu/~gs/linearalgebra/)\n",
+    "- [Advanced Engineering Mathematics by Erwin Kreyszig](https://search.lib.umich.edu/catalog/record/016256884)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## First, let's discuss the individual project\n",
+    "## First, reminder to submit evaluations\n",
     "\n",
-    "Details posted on Canvas and [Github](project_instructions.ipynb)"
+    "You have until midnight tonight! As of Tuesday, 12/27 have completed the quiz I set up to self-report taking it, earning participation points."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Second, let's discuss the individual project\n",
+    "\n",
+    "Details posted on Canvas and [Github](project_instructions.ipynb)."
    ]
   },
   {
@@ -45,15 +55,14 @@
     "\n",
     "a = np.array([0, 1, 2])\n",
     "b = np.array([5, 5, 5])\n",
-    "print(a + b)\n",
-    "print(a * b)"
+    "print(a + b)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Broadcasting\n",
+    "### Broadcasting: How NumPy will make compatible arrays\n",
     "\n",
     "We can also perform these operations with a scalar; NumPy will \"broadcast\" it to the correct size for the binary operation. In the case below, it will treat `5` as the ndarray `[5, 5, 5]` while never actually creating such an array."
    ]
@@ -61,18 +70,30 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
-    "print(a + 5)\n",
-    "print(a * 5)"
+    "print(a + 5)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "`Broadcasting` can also be done in higher dimensions:"
+    "A visual to describe broadcasting:\n",
+    "\n",
+    "![From PythonDataScienceHandbook](images/lect13_broadcasting.png)\n",
+    "\n",
+    "The light boxes represent the broadcasted values: again, this extra memory is not actually allocated in the course of the operation, but it can be useful conceptually to imagine that it is."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "As shown in the visual above, broadcasting can also be done in higher dimensions:"
    ]
   },
   {
@@ -108,24 +129,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "A visual to describe broadcasting:\n",
-    "\n",
-    "![From PythonDataScienceHandbook](images/lect13_broadcasting.png)\n",
-    "\n",
-    "The light boxes represent the broadcasted values: again, this extra memory is not actually allocated in the course of the operation, but it can be useful conceptually to imagine that it is."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "### More examples of NumPy's math knowledge"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "x = [1, 2, 4, 10]\n",
@@ -171,15 +183,6 @@
    "outputs": [],
    "source": [
     "m + n.T"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "m * n.T"
    ]
   },
   {
@@ -311,42 +314,6 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "#### Permutations\n",
-    "\n",
-    "Choosing three from n items in a certain order creates a permutation of the chosen items. The number of possible permutations of k objects chosen among n objects is written as: \n",
-    "$ _nP_k $\n",
-    "The number of ways k objects can be chosen among n possible ones is equal to:\n",
-    "$$ _nP_k = \\frac{n!}{(n-k)!} $$"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "#### Combinations\n",
-    "\n",
-    "Choosing k among n items without considering the order in which they are chosen is called a combination. The number of different ways this can be done is written by using the binomial coefficient notation:\n",
-    "$ {n\\choose k} $ or $_nC_r$\n",
-    "which is read \"n choose k.\"\n",
-    "\n",
-    "$$ {n\\choose k} = \\frac{n!}{k!(n-k)!} = \\frac{_nP_k}{k!} $$"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "When the order *doesn't* matter, it is a Combination.\n",
-    "\n",
-    "When the order *does* matter it is a Permutation.\n",
-    "![Basics](images/lect13_permutation.png)\n",
-    "A Permutation is an ordered Combination."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
     "## Matrices\n",
     "\n",
     "![Matrices](images/lect13_matrix.png)\n",
@@ -421,7 +388,14 @@
    "source": [
     "### Matrix Multiplication\n",
     "\n",
-    "![Matrices](images/lect13_matrix9.png)"
+    "![Matrices](images/lect13_matrix9alt.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![Matrices](images/lect13_matrix10.png)"
    ]
   },
   {
@@ -468,23 +442,13 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "![Matrices](images/lect13_matrix10.png)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Special Matrices\n",
+    "#### Cautions\n",
     "\n",
-    "![Matrices](images/lect13_matrix11.png)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "![Matrices](images/lect13_matrix12.png)"
+    "1. In general $ \\mathbf{AB} \\neq \\mathbf{BA}$\n",
+    "1. $\\mathbf{AB} = 0 $ does not necessarily imply that $\\mathbf{A} = 0 $ or $\\mathbf{B} = 0 $ or $\\mathbf{BA} = 0 $\n",
+    "1. $\\mathbf{AC} = \\mathbf{AD} $ does not necessarily imply that $\\mathbf{C} = \\mathbf{D} $, even when $\\mathbf{A} \\neq 0 $\n",
+    "\n",
+    "(more about this later)"
    ]
   },
   {
@@ -493,7 +457,164 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "f = np.array([[2, 0], [0, 3]])\n",
+    "f = np.array([[1, 1], [2, 2]])\n",
+    "g = np.array([[-1, 1], [1, -1]])\n",
+    "print(f)\n",
+    "print(g)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.matmul(f, g)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.matmul(g, f)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "h = np.array([[2, 1], [2, 2]])\n",
+    "k = np.array([[3, 0], [1, 3]])\n",
+    "print(f)\n",
+    "print(h)\n",
+    "print(k)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "print(np.matmul(f, h))\n",
+    "print(np.matmul(f, k))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Multiplication properties of numbers that do hold true for matrices\n",
+    "\n",
+    "1. $\\mathbf{A}(\\mathbf{BC}) = (\\mathbf{AB})\\mathbf{C} = \\mathbf{ABC}$\n",
+    "1. $k\\mathbf{AB} = \\mathbf{A}k\\mathbf{B}$\n",
+    "1. $(\\mathbf{A} + \\mathbf{B})\\mathbf{C} = \\mathbf{AC} + \\mathbf{BC}$\n",
+    "1. $\\mathbf{C}(\\mathbf{A} + \\mathbf{B}) = \\mathbf{CA} + \\mathbf{CB}$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Inner product of vectors\n",
+    "\n",
+    "When an $m\\times 1$ matrix (aka a row vector) is multiplied by a $ 1 \\times m$ matrix (aka a column vector), we get a $1 \\times 1$ product, called the *inner product* or *dot product*, denoted $\\mathbf{a} \\bullet \\mathbf{b}$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "np.dot([4, -1, 5], [2, 5, 8])"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Every entry of $\\mathbf{C} =\\mathbf{AB}$ is an inner product (dot product):\n",
+    "$$c_{jk} = \\mathbf{a}_j \\bullet \\mathbf{b}_k = (j\\text{th row of }\\mathbf{A}) \\bullet (k\\text{th column of }\\mathbf{B})$$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The power of matrix multiplication is in linear transformations. That topic will come after we finish matrices and talk about vectors."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Special Matrices\n",
+    "\n",
+    "An $n \\times n$ matrix is called a square matrix. All others are rectangular matrices.\n",
+    "\n",
+    "![Matrices](images/lect13_matrix11.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We already covered 1 and 2. An interesting tidbit: the transpose of a product equals the product of the transposed factors, taken in reverse order:\n",
+    "$$(\\mathbf{A} \\mathbf{B})^T = \\mathbf{B}^T \\mathbf{A}^T $$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Would you wager a guess as to:\n",
+    "\n",
+    "- What a symmetric matrix is? \n",
+    "- A skew-symmetric matrix? \n",
+    "- What property must they have?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Answers:**\n",
+    "\n",
+    "- $\\mathbf{A}^T = \\mathbf{A}$ \n",
+    "- $\\mathbf{A}^T = -\\mathbf{A}$ \n",
+    "- They must be square matrices"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "How about upper and lower triangular matrices?\n",
+    "\n",
+    "Upper triangular matrices have 0 for all elements below the diagonal, and lower triangular matrices have 0 for all elements above the diagonal."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "![Matrices](images/lect13_matrix12.png)\n",
+    "\n",
+    "A nice shortcut available for diagonal matrices:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "f = np.diagflat([[2, 3]])\n",
     "print(f)"
    ]
   },
@@ -604,6 +725,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "*Note:* the example above has one solution. Singular cases (definition below) have none or infinite solutions.\n",
+    "\n",
+    "![Matrices](images/lect13_singular.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "Now, using Gaussian elimination (e.g. the sweeping method) find, the inverse matrix of \n",
     "$ \\left( \\begin{array}{ccc}\n",
     "3 & 1 \\\\\n",
@@ -665,6 +795,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
+    "If **A** has an inverse, than **A** is a *nonsingular matrix*. Similarly, if **A** has no inverse, then **A** is called a *singular matrix*.\n",
+    "\n",
+    "If **A** has an inverse, the inverse is unique."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
     "### Calculating determinants\n",
     "\n",
     "From: https://www.mathsisfun.com/algebra/matrix-determinant.html\n",
@@ -674,7 +813,9 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "metadata": {},
+   "metadata": {
+    "collapsed": true
+   },
    "outputs": [],
    "source": [
     "k = np.array([[4, 6], [3, 8]])\n",
@@ -718,7 +859,16 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Next up: Vectors!"
+    "#### Fun fact about determinants:\n",
+    "\n",
+    "For any $n \\times n$ matrices **A** and **B**, det(**AB**) = det(**BA**) = det(**A**) det(**B**)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Next up: Vectors and Linear Transformations!"
    ]
   }
  ],
